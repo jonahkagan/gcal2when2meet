@@ -18,7 +18,7 @@ function load() {
   gapi.auth.init(function () {
     gapi.client.load('calendar', 'v3', function () {
       reqCalendarList().then(function (calendars) {
-        //var calendars = calendars.filter(function (c) { return c.summary === "Classes";});
+        var calendars = calendars.filter(function (c) { return c.selected; });
         return whenArray(calendars.map(reqEvents));
       }).done(function (events) {
         events = events.filter(function (es) { return es; });
