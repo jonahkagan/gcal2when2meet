@@ -1,0 +1,9 @@
+{
+  "output": "./../",
+  "locals": {
+    "title": "gcal2when2meet"
+  },
+  "plugins": [
+    "wintersmith-less"
+  ]
+}
