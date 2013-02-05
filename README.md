@@ -1,6 +1,8 @@
-# gcal2when2meet
+# I'M SICK OF SWITCHING TABS TO LOOK AT MY GOOGLE CALENDAR WHEN I'M FILLING IN A WHEN2MEET AND YOU SHOULD BE TOO.
 
-A bookmarklet to import your Google Calendar events into a when2meet.
+So here's a bookmarklet to import your Google Calendar events into a when2meet.
+
+## Instructions
 
 To use, simply make a browser bookmark with the following code as the url.
 
