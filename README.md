@@ -14,6 +14,8 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 Then go to any when2meet, log in to the when2meet with your name, and then
 click the bookmark.
 
+Any calendars that are hidden on your Google Calendar won't be imported.
+
 ## Plans for the Future
 
 - Support when2meets that have days of the week instead of specific dates
