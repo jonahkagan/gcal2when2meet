@@ -15,15 +15,17 @@ var scopes = "https://www.googleapis.com/auth/calendar.readonly";
 function load() {
   console.log("load");
   gapi.client.setApiKey(apiKey);
-  gapi.client.load('calendar', 'v3', function () {
-    reqCalendarList().then(function (calendars) {
-      //var calendars = calendars.filter(function (c) { return c.summary === "Classes";});
-      return whenArray(calendars.map(reqEvents));
-    }).done(function (events) {
-      events = events.filter(function (es) { return es; });
-      //console.log("events", flatten(events));
-      selectAll();
-      flatten(events).forEach(deselectEvent);
+  gapi.auth.init(function () {
+    gapi.client.load('calendar', 'v3', function () {
+      reqCalendarList().then(function (calendars) {
+        //var calendars = calendars.filter(function (c) { return c.summary === "Classes";});
+        return whenArray(calendars.map(reqEvents));
+      }).done(function (events) {
+        events = events.filter(function (es) { return es; });
+        //console.log("events", flatten(events));
+        selectAll();
+        flatten(events).forEach(deselectEvent);
+      });
     });
   });
 }
@@ -36,8 +38,7 @@ function reqCalendarList() {
     if (res.code === 401) {
       gapi.auth.authorize({
         client_id: clientId,
-        scope: scopes,
-        immediate: true
+        scope: scopes
       }, function () {
         reqCalendarList().then(deferred.resolve);
       });
