@@ -43,7 +43,7 @@ function reqCalendarList() {
         reqCalendarList().then(deferred.resolve);
       });
     } else {
-      console.log("authorized!")
+      console.log("authorized!");
       deferred.resolve(res.items);
     }
   });
@@ -51,19 +51,18 @@ function reqCalendarList() {
   return deferred.promise();
 }
 
-events = [];
+var events = [];
 
 function reqEvents(calendar) {
   var deferred = $.Deferred();
 
-  var today = new Date();
   gapi.client.calendar.events.list({
     calendarId: calendar.id,
     singleEvents: true, // expand recurring events
     timeMin: new Date(TimeOfSlot[0] * 1000).toISOString(),
     timeMax: new Date(TimeOfSlot[TimeOfSlot.length-1] * 1000).toISOString()
   }).execute(function (res) {
-    events.push(res)
+    events.push(res);
     console.log(res);
     deferred.resolve(res.items);
   });
@@ -71,7 +70,7 @@ function reqEvents(calendar) {
   return deferred.promise();
 }
 
-errors = [];
+var errors = [];
 
 function deselectEvent(event) {
   try {
@@ -122,7 +121,7 @@ function convertTime(gcalTime) {
   return d.getTime() / 1000;
 }
 
-window.GCAL = function () { load(); };
+window.GCAL = load;
 window.GCAL.errors = errors;
 window.GCAL.events = events;
 
