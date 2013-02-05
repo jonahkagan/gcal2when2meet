@@ -22,9 +22,15 @@ function load() {
         return whenArray(calendars.map(reqEvents));
       }).done(function (events) {
         events = events.filter(function (es) { return es; });
-        //console.log("events", flatten(events));
         selectAll();
-        flatten(events).forEach(deselectEvent);
+        if (events.length === 0) {
+          alert("Didn't find any events in this time period." +
+                " Note that when2meets that use days of the week instead of" +
+                " specific dates are not yet supported.");
+        } else {
+          //console.log("events", flatten(events));
+          flatten(events).forEach(deselectEvent);
+        }
       });
     });
   });
