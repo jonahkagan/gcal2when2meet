@@ -16,6 +16,7 @@ click the bookmark.
 
 - Support when2meets that have days of the week instead of specific dates
 - Ask which calendars you want to import
+- Support events that go off the edge of the time frame/wrap around
 
 ## Feedback
 
