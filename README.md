@@ -11,3 +11,12 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 
 Then go to any when2meet, log in to the when2meet with your name, and then
 click the bookmark.
+
+## Plans for the Future
+
+- Support when2meets that have days of the week instead of specific dates
+- Ask which calendars you want to import
+
+## Feedback
+
+Please let me know if you have any issues or feature requests on the [issues page](https://github.com/jonahkagan/gcal2when2meet/issues).
