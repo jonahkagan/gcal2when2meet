@@ -16,18 +16,17 @@ href="javascript:(function(){document.body.appendChild(document.createElement('s
 gcal2when2meet
 </a>
 
-Alternatively, make a browser bookmark with the following code as the url:
+Then go to any when2meet, log in to the when2meet with your name, and then click the bookmark. A popup message will ask you to authorize access to your Google Calendar. (You may need to turn off your popup blocker.)
+
+Any calendars that are hidden on your Google Calendar won't be imported.
+
+If you don't like dragging, you can make a browser bookmark with the following code as the url:
 
 ```
 javascript:(function(){document.body.appendChild(document.createElement(
 'script')).src='https://raw.github.com/jonahkagan/gcal2when2meet/master/
 gcal2when2meet.js';})();
 ```
-
-Then go to any when2meet, log in to the when2meet with your name, and then
-click the bookmark.
-
-Any calendars that are hidden on your Google Calendar won't be imported.
 
 ### Plans for the Future
 
@@ -41,5 +40,4 @@ Please let me know if you have any issues or feature requests on the [issues pag
 
 ### About
 
-Made by [Jonah Kagan](http://jonahkagan.me). Source is open on
-[Github](https://github.com/jonahkagan/gcal2when2meet).
+Made by [Jonah Kagan](http://jonahkagan.me). Source is open on [Github](https://github.com/jonahkagan/gcal2when2meet).
