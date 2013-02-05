@@ -18,7 +18,7 @@ function load() {
   gapi.auth.init(function () {
     gapi.client.load('calendar', 'v3', function () {
       reqCalendarList().then(function (calendars) {
-        var calendars = calendars.filter(function (c) { return c.selected; });
+        calendars = calendars.filter(function (c) { return c.selected; });
         return whenArray(calendars.map(reqEvents));
       }).done(function (events) {
         events = events.filter(function (es) { return es; });
@@ -110,7 +110,16 @@ function whenArray(promiseArr) {
 }
 
 function convertTime(gcalTime) {
-  return (new Date(gcalTime).getTime() / 1000);
+  var d = new Date(gcalTime);
+  // if not on a quarter hour increment
+  if (d.getMinutes() % 15 !== 0) {
+    // round to the nearest half hour
+    var m = (Math.round(d.getMinutes() / 30) * 30) % 60;
+    var h = d.getMinutes() > 45 ? d.getHours() + 1 : d.getHours();
+    d.setMinutes(m);
+    d.setHours(h);
+  }
+  return d.getTime() / 1000;
 }
 
 window.GCAL = function () { load(); };
